@@ -46,7 +46,11 @@ o funciones se eleven al comienzo de su ámbito antes de que se ejecute el códi
 */
 
 
+saludar("Jen");
 
+function saludar(nombre) {
+  console.log("Qué te gustaría de regalod e cumpleaños " + nombre);
+}
 
 
 /*
@@ -63,9 +67,32 @@ sintaxis:
     };
 */
 
+const darRegalo = function (nombre, regalo) {
+  console.log(`Felicidades ${nombre}, te traje ${regalo}`);
+};
 
+darRegalo("Jen", "Sopa Nissin con camaron");
 
+/*
+ Realizar una función declarada que sume dos números 
+ y retorne el resultado.
+ 
+ Realizar una función expresada que reste dos números 
+ y retorne el resultado.
+ 
+*/
 
+sumar(5, 45);
+
+function sumar(a, b) {
+  return console.log(`La suma es: ${a + b}`);
+}
+
+const restar = function (a, b) {
+  return console.log(`La resta es: ${a - b}`);
+};
+
+restar(10, 1);
 
 /*
  ------------ Funciones autoinvocadas -----------------------
@@ -125,4 +152,4 @@ Inicializa un parámetro de la función, si no se envía el argumento cuando se 
 
 
 
-  
+
