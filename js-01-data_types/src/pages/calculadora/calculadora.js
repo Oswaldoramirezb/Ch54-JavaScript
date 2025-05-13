@@ -11,4 +11,25 @@
 Resultado esperado:
  Si el usuario ingresa 25 y presiona el botón, se muestra:
  Tu edad en meses es: 300
+
+  const edad = document.getElementById('birthdate').value;
 */
+
+
+const botonCalcular = document.getElementById('calculate');
+
+botonCalcular.addEventListener('click', function () {
+    // valor edad
+    const edad = document.getElementById('birthdate').value;
+
+    // Convertir a número
+    const edadAnios = Number(edad);
+
+    // edad en meses
+    const edadMeses = edadAnios * 12;
+
+    // resultado
+    const divResultado = document.getElementById('result');
+
+    divResultado.textContent = `Edad en meses: ${edadMeses}`;
+});
