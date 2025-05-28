@@ -1,10 +1,11 @@
 {
   "name": "sesion-js-08-npm",
   "version": "0.0.1",
-  "description": "Uso de NPM en aplicacion web",
+  "description": "Uso de NPM en una aplicación web",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pruebita": "echo \"Soy de la Ch54\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -14,10 +15,9 @@
     "generation",
     "js08",
     "javascript",
-    "ch54",
-    "topoyiyo"
+    "ch54"
   ],
-  "author": "Oswaldo, Pollo",
+  "author": "Serch, Maria, Jesus, Nancy",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.6"

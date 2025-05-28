@@ -1,3 +1,4 @@
+import { postUser } from "../../js/api/postUser/postUser.js";
 import { isUserValid } from "../../js/validations/isUserValid.js";
 import { insertMainHeader as menu } from "../../modules/header/header.js";
 import { leerInputsFormulario } from "./leerInputsFormulario.js";
@@ -12,7 +13,7 @@ menu(document.getElementById("header"));
 const registerForm = document.getElementById("contactForm");
 
 // registerForm.addEventListener( "evento" , ()=>{} );
-registerForm.addEventListener("submit", async (e) => {
+registerForm.addEventListener( "submit" , async ( e )=>{
     e.preventDefault(); // evita que se envíe el formulario
     console.log("Manejo del formulario");
     // console.log( e );
@@ -26,22 +27,19 @@ registerForm.addEventListener("submit", async (e) => {
     if (validatedUser.isValid) {
         // Si los datos son válidos enviar el formulario
         try {
-            const response = await postUser("https://reqres.in/api/users");
-            alert("Formulario enviado correctamente " + response.createdAt);
+            const response = await postUser(newUser, "https://reqres.in/api/users"); 
+            alert("Formulario enviado correctamente " + response.createdAt);           
         } catch (error) {
             alert("Error al enviar el formulario: " + error.message);
         }
-
+        // = Enviar un mensaje al usuario, limpiar el formulario, redirigir la página
         // - Usando la api fetch al servidor, con el método POST enviar el formulario
     } else {
         // Si los datos no son válidos enviar un mensaje al usuario
-        alert(validatedUser.errors.join("\n"));
+        alert( validatedUser.errors.join("\n") );
     }
-
-    // = Enviar un mensaje al usuario, limpiar el formulario, redirigir la página
 
     // = Enviar al usuario el error del servidor
 
-    // Si los datos no son válidos enviar un mensaje al usuario
 
 });
