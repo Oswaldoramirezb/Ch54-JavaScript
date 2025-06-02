@@ -54,6 +54,10 @@ test("Debe aceptar un nombre válido", ()=>{
  .toBeLessThan(number) / .toBeLessThanOrEqual(number)
  Propósito: Compara si un número es menor que, o menor o igual que, otro.
 */
+
+
+
+
 test("Debe rechazar un nombre vacío", () =>{
     const response = validateName("");
     expect( response.isValid).toBe( false );
@@ -63,3 +67,42 @@ test("Debe rechazar un nombre vacío", () =>{
     expect( response.errors.length).toBeGreaterThan(0);
 
 });
+
+
+
+test("Debe rechar un nombre con solo espacios", ()=>{
+    const response = validateName("   ");
+    expect( response.isValid ).toBeFalsy();
+    expect( response.errors.length ).toBeGreaterThan(0);
+    expect( response.errors ).toContain("No se permiten espacios en el nombre");
+ });
+ 
+
+
+ /*
+  .toContain(item)
+  Propósito: Verifica si un array (o un string) contiene un elemento específico. 
+  Para objetos en arrays, usa toContainEqual.
+*/
+test("Debe rechar un nombre con solo espacios", ()=>{
+    const response = validateName("   ");
+    expect( response.isValid ).toBeFalsy();
+    expect( response.errors.length ).toBeGreaterThan(0);
+    expect( response.errors ).toContain("No se permiten espacios en el nombre");
+ });
+
+
+ test("Debe rechazar nombres demasiado cortos", ()=>{
+    const response = validateName("Je");
+    expect( response.isValid ).toBeFalsy();
+    expect( response.errors.length ).toBeGreaterThan(0);
+    expect( response.errors ).toContain("El nombre debe tener más de dos caracteres");
+  });
+
+  
+  test("Debe rechazar valores que no son string(null)", ()=>{
+    const response = validateName( null );
+    expect( response.isValid ).toBeFalsy();
+    expect( response.errors.length ).toBeGreaterThan(0);
+    expect( response.errors ).toContain("El valor ingresado no es un nombre válido");
+  });
