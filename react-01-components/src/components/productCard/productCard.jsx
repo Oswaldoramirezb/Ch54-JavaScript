@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+import { ButtonGroup, Button, Typography } from "@mui/material";
 /*
  Un componente en React se renderiza baja ciertas condiciones:
   - Cambio en las props: Si las props que recibe el componente cambian, este
@@ -43,12 +45,15 @@ const ProductCard = () => {
     return (
 
         <div>
-            <p>title</p>
+            <Typography sx={{ color: "green" }} variant="h2" component="h4">title</Typography>
             <p>raiting</p>
             <p>price</p>
             <p>{count}</p>
-            <button onClick={() => handleDecrement(1)}>-</button>
-            <button onClick={() => handleIncrement(10)}>+</button>
+
+            <ButtonGroup variant="contained" aria-label="Basic button group">
+                <Button onClick={() => handleDecrement(1)}>-</Button>
+                <Button onClick={() => handleIncrement(10)}>+</Button>
+            </ButtonGroup>
         </div>
 
 

@@ -1,5 +1,3 @@
-import "./footer.css";
-
 const desestructuracion = () => {
     let a = 10;
     let b = 20;
@@ -53,24 +51,12 @@ const desestructuracion = () => {
 desestructuracion();
 
 
-const semana8Style = {
-    fontSize: "2rem",
-    color: "yellow"
-};
-const semana8PartyStyle = {
-    fontSize: "4rem",
-    color: "red"
-};
-
-
-
-const Footer = ({ cohorte: ch }) => {
+const Footer = ({ cohorte }) => {
 
     return (
         <footer>
-            <p style={{ fontsize: "2rem", color: "yellow" }}>Cohorte - {ch} - 2025</p>
-            <p style={ch === 54 ? semana8Style : semana8PartyStyle}>Semana 8</p>
-            <em className="textFooter">Es leviosa, no leviosaá</em>
+            <p>{cohorte} - 2025</p>
+            <em>Es leviosa, no leviosaá</em>
         </footer>
     );
 };

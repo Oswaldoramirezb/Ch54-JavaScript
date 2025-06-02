@@ -2,21 +2,35 @@ import { Footer } from './pages/footer/footer';
 import { Navbar } from './pages/navbar/navbar';
 import { Home } from './pages/home/home';
 import './App.css'
-import Products from './pages/products/products';
+import { Products } from './pages/products/products';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NotFound } from './pages/not-found/notFound';
 
 function App() {
 
-
+  /*
+    BrowserRouter sirve para habilitar el enrutamiento basado en 
+    la URL del navegador en tu aplicación React.
+    Utiliza la API de Historial de HTML5 para:
+     - Mantener la UI sincronizada con la URL: Cuando cambias de "página" 
+     en tu aplicación, BrowserRouter actualiza la URL en la barra de 
+     direcciones del navegador.
+     - Permitir la navegación con los botones de "atrás" y "adelante" 
+     del navegador: Escucha los cambios en el historial del navegador
+      y actualiza la UI correspondientemente.
+  */
 
   const myJsx = (
-    <>
-      <Navbar title="El dia de harry potter" />
-      <Home name="Myrtle la llorona" howartsHome="Revenclaw" />
-      <Home name="Serch snape" howartsHome="Slytherin" />
-      <Products />
-      <Footer cohorte={"Ch 54"}></Footer>
-
-    </>
+    <BrowserRouter> {/* Habilita el enrutamiento */}
+      {/*Navbar se mostrará para todas las rutas*/}
+      <Navbar title="Día de Harry potter" />
+      <Routes> {/*Define y agrupa un conjunto de rutas*/}
+        <Route path="/" element={<Home name="Myrtle la llorona" hogwartsHome="Ravenclaw" />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer cohorte={"Ch 54"} />
+    </BrowserRouter>
   );
 
   return myJsx;
